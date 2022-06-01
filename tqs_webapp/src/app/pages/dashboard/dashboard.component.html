@@ -1,13 +1,12 @@
 <app-navbar></app-navbar>
 
-<h4>categories</h4>
-<div class="col-lg-9">
+<div class="col-lg-10">
     <div class="row">
-        <div *ngFor="let c of categories" class="col-lg-3">
-            <div class="card" style="width: 18rem;">
-                <img src="../../../assets/coviran.jpg" class="card-img-top" alt="Chocapic :)">
+        <div *ngFor="let c of categories" class="col-lg-4" style="width:20em">
+            <div class="card">
+                <img src="../../../assets/img/coviran.png" class="card-img-top"  alt="Chocapic :)">
                 <div class="card-body">
-                  <a href="category/{{c.id}}" class="btn btn-primary">{{c.name}}</a>
+                  <a href="category/{{c.id}}" class="btn btn-outline-success">{{c.name}}</a>
                 </div>
             </div>
         </div>

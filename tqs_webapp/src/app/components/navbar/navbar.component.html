@@ -1,16 +1,32 @@
-<nav class="navbar navbar-dark bg-dark">
-    <form class="container-fluid justify-content-start">
-        <h2 style="color:white; font-weight: bold;">COVIRAN</h2>
-        <a href="/">
-            <button class="btn btn-outline-success me-2" type="button">Our products</button>
-        </a>
-      
-        <a href="/cart">
-            <button class="btn btn-outline-success me-2" type="button">Your cart</button>
+
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+
+        <a class="navbar-brand" href="#">
+            <img src="../../../assets/img/coviran.png" alt="" width="200" class="d-inline-block align-text-top">
         </a>
 
-        <a href="/lists">
-            <button class="btn btn-outline-success me-2" type="button">Your lists</button>
-        </a>
-    </form>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/">Products</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/lists">Your lists</a>
+                </li>
+
+            </ul>
+
+            <button type="button" class="btn btn-outline-success" routerLink="/cart">Cart</button>
+            <button type="button" class="btn btn-outline-success">Login/Register</button>
+        </div>
+
+    </div>
 </nav>

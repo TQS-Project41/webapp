@@ -13,10 +13,14 @@ export class DashboardComponent implements OnInit {
   }
 
   categories = [
-    {id: 1, name:'Promotions'},
-    {id: 2, name:'Fruit'},
-    {id: 3, name:'Meat'},
-    {id: 4, name:'Personal Hygiene'}
+    {id: 1, name:'Promoções'},
+    {id: 2, name:'Frutas e Legumes'},
+    {id: 3, name:'Charcutaria'},
+    {id: 4, name:'Lácteos'},
+    {id: 5, name:'Congelados'},
+    {id: 6, name:'Bebidas'},
+    {id: 7, name:'Higiene Pessoal'},
+    {id: 8, name:'Peixe'},
   ];
 
 }
