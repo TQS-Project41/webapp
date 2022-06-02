@@ -1,9 +1,9 @@
-<app-navbar></app-navbar>
+<app-navbar [card_number]="card_number"></app-navbar>
 
 <div class="col-lg-10">
     <div class="row">
         <div *ngFor="let p of products" class="col-lg-3">
-            <app-product [product_name]="p.name"></app-product>
+            <app-product [product]="p" (rcv_product)="getQuantity($event)"></app-product>
         </div>
     </div>
 </div>

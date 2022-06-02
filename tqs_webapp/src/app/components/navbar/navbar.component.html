@@ -24,7 +24,8 @@
 
             </ul>
 
-            <button type="button" class="btn btn-outline-success" routerLink="/cart">Cart</button>
+            <button type="button" class="btn btn-outline-success" routerLink="/cart" *ngIf="quantity != 0"> Cart {{quantity}}€</button>
+            <button type="button" class="btn btn-outline-success" routerLink="/cart" *ngIf="quantity == 0"> Cart </button>
             <button type="button" class="btn btn-outline-success">Login/Register</button>
         </div>
 
