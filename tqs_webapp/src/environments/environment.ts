@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  PRIVATE_API: 'http://localhost:8081/',
 };
 
 /*

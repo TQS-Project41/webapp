@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { Category } from 'src/app/classes/Category';
+import { DashboardService } from 'src/app/service/dashboard.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,21 +9,19 @@ import { environment } from 'src/environments/environment';
 })
 export class DashboardComponent implements OnInit {
 
+  categories!: Category[];
   
-  constructor() { }
+  constructor(private service: DashboardService) { }
 
   ngOnInit(): void {
+    this.getCategories();
   }
 
-  categories = [
-    {id: 1, name:'Promoções'},
-    {id: 2, name:'Frutas e Legumes'},
-    {id: 3, name:'Charcutaria'},
-    {id: 4, name:'Lácteos'},
-    {id: 5, name:'Congelados'},
-    {id: 6, name:'Bebidas'},
-    {id: 7, name:'Higiene Pessoal'},
-    {id: 8, name:'Peixe'},
-  ];
+  getCategories() {
+    this.service.getCategories().subscribe((info) => {
+      console.log(info)
+      this.categories = info;
+    });
+  }
 
 }
