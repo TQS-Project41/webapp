@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Page } from 'src/app/classes/Page';
 import { Product } from 'src/app/classes/Product';
+import { CategoryService } from 'src/app/service/category.service';
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -9,26 +12,33 @@ import { environment } from '../../../environments/environment';
 })
 export class CategoryComponent implements OnInit {
 
-  constructor() { }
+  categoryId!: number;
+  card_number: number = 0;
+  products!: Page<Product>;
+  lst_products!: Product[];
+
+
+  constructor( private router: Router, private service: CategoryService) { }
 
   ngOnInit(): void {
+    const url_array = this.router.url.split("/");
+    this.categoryId = +url_array[url_array.length - 1];
+    this.getProducts();
   }
 
-  card_number: number = 0;
-
-  products : Product[] = [
-    {id: 1, name:'Cereais Chocapic NESTLÉ', price:'5', quantity:0, total_price: 0},
-    {id: 2, name:'Água Luso 1L', price:'2.5', quantity:0, total_price: 0},
-    {id: 3, name:'Colgate', price:'6', quantity:0, total_price: 0},
-    {id: 4, name:'Cerveja Super Bock', price:'0.5', quantity:0, total_price: 0}
-  ];
+  getProducts() {
+    this.service.getProducts(this.categoryId).subscribe((info) => {
+      this.products = info;
+      this.lst_products = info.content
+    });
+  }
 
   getQuantity(product: Product) {
     /* console.log("[", product.name ,"]:", product.quantity) */
 
     let json = '[';
     // atualizar a lista
-    for (var p of this.products) {
+    for (var p of this.lst_products) {
       if (p.id == product.id) {
         p.quantity = product.quantity
         p.total_price = p.quantity * +p.price

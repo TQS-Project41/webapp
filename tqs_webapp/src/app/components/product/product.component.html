@@ -1,9 +1,11 @@
 <div class="card" style="width: 18rem;">
-    <img src="../../../assets/img/chocavelho.jpg" class="card-img-top" alt="Chocapic :)">
+
+    <!-- <img src="../../../assets/img/chocavelho.jpg" class="card-img-top" alt="Chocapic :)"> -->
+
     <div class="card-body">
       <h5 class="card-title">{{p.name}}</h5>
       <p class="card-text">{{p.price}}€</p>
-      <p class="text-muted">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <p class="text-muted">{{p.description}}</p>
       <!-- <a class="btn btn-primary">Add to cart</a> -->
       <div class="d-flex align-items-center mt-5">
         <input type="number" min="0" value="0" id="input_{{p.id}}" style="text-align:center; width: 5em; position: absolute; left: 0;"/>

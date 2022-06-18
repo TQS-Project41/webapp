@@ -1,16 +1,31 @@
-<app-navbar></app-navbar>
+<app-navbar [card_number]="card_number"></app-navbar>
 
-<div class="col-lg-10" style="margin-top: 10em; margin-left: 20em;">
-    <div class="row">
+<div class="col-lg-8" *ngIf="categories" > <!-- style="margin-top: 10em; margin-left: 20em;" -->
+    <div class="row" >
 
         <!-- Category Card -->
-        <div *ngIf="categories" class="col-lg-4" style="width:20em">
-            <div class="card" *ngFor="let c of categories">
+        <div *ngFor="let c of categories" class="col-lg-4" >
+            <div class="card" >
                 <img src="../../../assets/img/coviran.png" class="card-img-top"  alt="Chocapic :)">
                 <div class="card-body">
                   <a href="category/{{c.id}}" class="btn btn-outline-success">{{c.name}}</a>
                 </div>
             </div>
+        </div>
+
+    </div>
+</div>
+
+
+<hr>
+
+
+<div class="col-lg-10" *ngIf="products">
+    <div class="row">
+
+        <!-- Produt Card -->
+        <div *ngFor="let p of lst_products" class="col-lg-3">
+            <app-product [product]="p" (rcv_product)="getQuantity($event)"></app-product>
         </div>
 
     </div>
