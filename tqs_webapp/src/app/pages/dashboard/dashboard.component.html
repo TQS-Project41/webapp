@@ -2,13 +2,16 @@
 
 <div class="col-lg-10" style="margin-top: 10em; margin-left: 20em;">
     <div class="row">
-        <div *ngFor="let c of categories" class="col-lg-4" style="width:20em">
-            <div class="card">
+
+        <!-- Category Card -->
+        <div *ngIf="categories" class="col-lg-4" style="width:20em">
+            <div class="card" *ngFor="let c of categories">
                 <img src="../../../assets/img/coviran.png" class="card-img-top"  alt="Chocapic :)">
                 <div class="card-body">
                   <a href="category/{{c.id}}" class="btn btn-outline-success">{{c.name}}</a>
                 </div>
             </div>
         </div>
+
     </div>
 </div>

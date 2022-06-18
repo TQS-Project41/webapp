@@ -4,6 +4,8 @@ import { CartComponent } from './pages/cart/cart.component';
 import { CategoryComponent } from './pages/category/category.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ListsComponent } from './pages/lists/lists.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 const routes: Routes = [
 
@@ -15,6 +17,10 @@ const routes: Routes = [
       { path: ':id', component: CategoryComponent }
     ]
   },
+
+  { path: 'login', component: LoginComponent },
+
+  { path: 'register', component: RegisterComponent },
 
   { path: 'cart', component: CartComponent },
 
