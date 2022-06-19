@@ -3,7 +3,7 @@ FROM node:14.17.0-alpine as build-step
 RUN mkdir -p /usr/src/app_test
 WORKDIR /usr/src/app_test
 
-RUN npm install -g @angular/cli@13.1.4
+RUN npm install
 
 COPY . /usr/src/app_test
 
