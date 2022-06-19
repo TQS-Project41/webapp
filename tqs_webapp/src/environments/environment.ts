@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  PRIVATE_API: 'http://localhost:8081/',
+  PRIVATE_API: 'http://deti-tqs-12.ua.pt:8001/',
 };
 
 /*
