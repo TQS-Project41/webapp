@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { catchError } from 'rxjs/operators';
-import { Observable, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { AuthService } from './auth.service';
 
@@ -24,19 +23,6 @@ export class HTTPService implements HttpInterceptor {
             });
         }
 
-        return next.handle(request).pipe(
-            catchError((err) => {
-
-                if (err.status == 403) {
-                    return throwError(err)
-                    // return this.intercept(request, next);
-                    
-                } else {
-                    const error = err.error|| err.statusText;
-                    return throwError(error);
-                }
-                
-            })
-        );
+        return next.handle(request)
     }
 }
