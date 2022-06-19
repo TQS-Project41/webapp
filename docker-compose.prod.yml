@@ -4,7 +4,7 @@ version: "3.0"
 
 services:
   angular-service:
-    container_name: webapp-service-test
+    container_name: webapp-service-prod
     build: ./tqs_webapp
     command: ng serve --prod --host 0.0.0.0 --port 4200 --disable-host-check
     networks:
