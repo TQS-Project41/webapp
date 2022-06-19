@@ -17,6 +17,7 @@
                 <div class="wrap-input100 validate-input">
                     <input class="input100" type="text" id="email" name="email" placeholder="Your email" formControlName="email">
                     <p *ngIf="error_email" class="text-danger">A valid email is required: ex@abc.xyz</p>
+                    <p *ngIf="error_register" class="text-danger">This email is already associated with an account!</p>
                 </div>
 
                 <div class="wrap-input100 validate-input">
@@ -46,7 +47,6 @@
                     <span class="focus-input100"></span>
                 </div> -->
 
-                <p *ngIf="error_register" class="text-danger">This email is already associated with an account!</p>
                 <p *ngIf="success" class="text-success">Welcome! The account was created with success. </p>
 
                 <div class="container-login100-form-btn">

@@ -1,7 +1,12 @@
-export interface Product {
-    id: number,
-    name: string,
-    price: string,
-    quantity: number,
-    total_price: number
+import { Category } from "./Category";
+
+export class Product {
+    id!: number
+    name!: string
+    price!: number
+    description!: string
+    category!: Category
+
+    amount: number = 0
+    total_price: number = 0
  }

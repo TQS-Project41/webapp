@@ -24,16 +24,25 @@ export class LoginComponent implements OnInit {
     let str = '{"email": "'+ mail +'", "password": "'+ password +'"}';
     let json = JSON.parse(str);
 
-    this.service.logIn(json).subscribe({
-      next: () => {
-        this.logInFailed = false;
-        window.location.href = "/"
+    if (mail && password) {
+      this.service.logIn(json).subscribe({
+        next: () => {
+          this.logInFailed = false;
+          window.location.href = "/"
 
-      }, 
-      error: () => {
-        this.logInFailed = true;
-      }
-    });
+        }, 
+        error: () => {
+          this.logInFailed = true;
+        }
+      });
+
+    } else {
+      this.logInFailed = true;
+    }
+  }
+
+  redirect() {
+    window.location.href = "/";
   }
 
 }
