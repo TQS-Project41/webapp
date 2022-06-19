@@ -1,19 +1,17 @@
 version: "3.0"
 
+version: "3.0"
+
 services:
   angular-service:
-    container_name: webapp-service
+    container_name: webapp-service-test
     build: ./tqs_webapp
+    command: ng serve --prod --host 0.0.0.0 --port 4200 --disable-host-check
     networks:
-      - webapp_prod
-    volumes:
-      - './tqs_webapp:/usr/src/app'
-    env_file: ./deployment/.env
-    environment:
-      WEBAPP_LOCAL_PORT: $WEBAPP_LOCAL_PORT
-      WEBAPP_DOCKER_PORT: $WEBAPP_DOCKER_PORT
+      - webapp_test
+    env_file: ./testing/.env
     ports:
-        - $WEBAPP_LOCAL_PORT:$WEBAPP_DOCKER_PORT
+        - 4200:4200
 
 networks:
-  webapp_prod:
+  webapp_test:

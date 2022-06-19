@@ -20,6 +20,7 @@ if [ -f $filename ]; then
     printf "[*] DELETED DOCKERFILE...\n"
 fi
 
+printf "[*] CREATED DOCKERFILE...\n"
 cat ./deployment/Dockerfile >> ./tqs_webapp/Dockerfile
 
 ./prod.sh -a
