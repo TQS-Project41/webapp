@@ -8,6 +8,6 @@ RUN npm install
 COPY ./package.json ./
 RUN npm install
 
-COPY . .
+COPY . /usr/src/app_test
 
 CMD ng serve --host 0.0.0.0 --port 9200
