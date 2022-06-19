@@ -4,12 +4,14 @@ services:
   angular-service:
     container_name: webapp-service-prod
     build: ./tqs_webapp
-    command: ng serve --prod --host 0.0.0.0 --port 4200 --disable-host-check
     networks:
       - webapp_prod
     env_file: ./deployment/.env
+    environment:
+      WEBAPP_LOCAL_PORT: $WEBAPP_LOCAL_PORT
+      WEBAPP_DOCKER_PORT: $WEBAPP_DOCKER_PORT
     ports:
-        - 4200:4200
+        - $WEBAPP_LOCAL_PORT:$WEBAPP_DOCKER_PORT
 
 networks:
   webapp_prod:
