@@ -7,4 +7,4 @@ RUN npm install -g @angular/cli@13.1.4
 
 COPY . /usr/src/app
 
-CMD ng serve --host 0.0.0.0 --port 4202
+CMD ng serve --prod --host 0.0.0.0

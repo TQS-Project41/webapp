@@ -2,13 +2,13 @@ version: "3.0"
 
 services:
   angular-service:
-    container_name: webapp-service-test
+    container_name: webapp-service
     build: ./tqs_webapp
     networks:
-      - webapp_test
+      - webapp_prod
     volumes:
-      - './tqs_webapp:/usr/src/app_test'
-    env_file: ./testing/.env
+      - './tqs_webapp:/usr/src/app'
+    env_file: ./deployment/.env
     environment:
       WEBAPP_LOCAL_PORT: $WEBAPP_LOCAL_PORT
       WEBAPP_DOCKER_PORT: $WEBAPP_DOCKER_PORT
@@ -16,4 +16,4 @@ services:
         - $WEBAPP_LOCAL_PORT:$WEBAPP_DOCKER_PORT
 
 networks:
-  webapp_test:
+  webapp_prod:
