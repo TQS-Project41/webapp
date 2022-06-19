@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/classes/Product';
+import { ProductCartItem } from 'src/app/classes/ProductCartItem';
+import { CartService } from 'src/app/service/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,11 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
+  product!: Product;
+  lst_products: ProductCartItem[] = [];
+  total_price: number = 0;
   scheduled: boolean = false
-  constructor() { }
+
+  
+  constructor(private service: CartService) { }
 
   ngOnInit(): void {
+    this.getCartItems();
   }
+
 
   check() {
     if ((<HTMLInputElement>document.getElementById("Schedule")).checked) {
@@ -20,6 +30,19 @@ export class CartComponent implements OnInit {
     } else {
       this.scheduled = false
     }
+  }
+
+  getCartItems() {
+    this.service. getItems().subscribe((info) => {
+      this.lst_products = info;
+      this.lst_products.forEach((p) => {
+        this.total_price += p.amount * p.product.price
+      });
+    });
+  }
+
+  removeItem(id: any) {
+    console.log("REMOVING ITEM<"+ id +">")
   }
 
 }

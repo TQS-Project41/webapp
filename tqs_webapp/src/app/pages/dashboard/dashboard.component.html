@@ -1,15 +1,58 @@
 <app-navbar></app-navbar>
 
-<h4>categories</h4>
-<div class="col-lg-9">
-    <div class="row">
-        <div *ngFor="let c of categories" class="col-lg-3">
-            <div class="card" style="width: 18rem;">
-                <img src="../../../assets/coviran.jpg" class="card-img-top" alt="Chocapic :)">
-                <div class="card-body">
-                  <a href="category/{{c.id}}" class="btn btn-primary">{{c.name}}</a>
+<div class="grey-bg container-fluid">
+    
+    <!-- Banner -->
+    <section class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="hero__item set-bg">
+                        <div class="hero__text">
+                            <span>Coviran</span>
+                            <h2>Buy <br />with pleasure.</h2>
+                            <p>The best choice for your online shopping.</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+        </div>
+    </section>
+    <!-- Banner -->
+
+    <div class="container" *ngIf="categories" > <!-- style="margin-top: 10em; margin-left: 20em;" -->
+        <div class="row" >
+
+            <h4>All Categories</h4>
+
+            <!-- Category Card -->
+            <div *ngFor="let c of categories" class="col-lg-4 mt-4" >
+
+                    <div class="card" style="text-align:center;cursor: pointer;" (click)="redirect(c.id)">
+                        <img src="../../../assets/img/peixaria.jpg" class="card-img-top"  alt="Chocapic :)">
+
+                        <h5 class="mb-0 font-weight-bold">{{c.name}}</h5>
+                    </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <hr>
+
+
+    <div class="container" *ngIf="products">
+        <div class="row">
+            <h4>All Products</h4>
+            <!-- Produt Card -->
+            <div *ngFor="let p of lst_products" class="col-lg-3 mt-4">
+                <app-product [product]="p" ></app-product>
+            </div>
+
         </div>
     </div>
 </div>

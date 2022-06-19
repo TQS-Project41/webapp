@@ -1,0 +1,71 @@
+<div class="container-login100">
+    <div class="wrap-login100">
+
+        <div class="mb-5">
+
+            <form *ngIf="registerForm" id="register" class="login100-form validate-form" [formGroup]="registerForm">
+
+                <img src="../../../assets/img/coviran.png" alt="coviran_logo" width="300" >
+
+                <span class="login100-form-title">Become a Coviran Member</span>
+
+                <div class="wrap-input100 validate-input" >
+                    <input class="input100" type="text" id="name" name="name" placeholder="Your name" formControlName="name">
+                    <p *ngIf="error_name" class="text-danger">Name is required</p>
+                </div>
+
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="text" id="email" name="email" placeholder="Your email" formControlName="email">
+                    <p *ngIf="error_email" class="text-danger">A valid email is required: ex@abc.xyz</p>
+                    <p *ngIf="error_register" class="text-danger">This email is already associated with an account!</p>
+                </div>
+
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="password" id="pass" name="pass" placeholder="Your password" formControlName="password">
+                    <p *ngIf="error_password" class="text-danger">Password is required</p>
+                </div>
+
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="password" id="pass_again" name="pass_again" placeholder="Confirm your password">
+                    <p *ngIf="error_diff_password" class="text-danger">Password is not the same</p>
+                </div>
+
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="date" id="birthday" name="date" placeholder="Birthday" formControlName="birthday">
+                    <p *ngIf="error_birthday" class="text-danger">A valid birthday date is required</p>
+                </div>
+
+                <div class="wrap-input100 validate-input" >
+                    <input class="input100" type="text" id="phonenumber" name="phonenumber" placeholder="Your phone number" formControlName="phoneNumber">
+                    <p *ngIf="error_telephone" class="text-danger">A valid phone number is required</p>
+                </div>
+
+                <!-- <p *ngIf="error_address" class="text-danger">Address is required</p> -->
+                <!--  
+                <div class="wrap-input100 validate-input" data-validate="Enter your address">
+                    <input class="input100" type="text" name="address" id="address" placeholder="Address">
+                    <span class="focus-input100"></span>
+                </div> -->
+
+                <p *ngIf="success" class="text-success">Welcome! The account was created with success. </p>
+
+                <div class="container-login100-form-btn">
+                    <div class="col-lg-5">
+                        <a class="login100-form-btn-cancel" href="/login">
+                            Go Back
+                        </a>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <a class="login100-form-btn" (click)="register()">
+                            Register
+                        </a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+

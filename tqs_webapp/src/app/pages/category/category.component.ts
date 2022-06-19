@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Page } from 'src/app/classes/Page';
+import { Product } from 'src/app/classes/Product';
+import { CategoryService } from 'src/app/service/category.service';
+
 
 @Component({
   selector: 'app-category',
@@ -7,16 +12,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryComponent implements OnInit {
 
-  constructor() { }
+  categoryId!: number;
+  card_number: number = 0;
+  products!: Page<Product>;
+  lst_products!: Product[];
+
+
+  constructor( private router: Router, private service: CategoryService) { }
 
   ngOnInit(): void {
+    const url_array = this.router.url.split("/");
+    this.categoryId = +url_array[url_array.length - 1];
+    this.getProducts();
   }
 
-  products = [
-    {id: 1, name:'Cereais Chocapic NESTLÉ'},
-    {id: 2, name:'Água Luso 1L'},
-    {id: 3, name:'Colgate'},
-    {id: 4, name:'Cerveja Super Bock'}
-  ];
-
+  getProducts() {
+    this.service.getProducts(this.categoryId).subscribe((info) => {
+      this.products = info;
+      this.lst_products = info.content
+    });
+  }
 }
