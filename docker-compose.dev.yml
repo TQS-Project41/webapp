@@ -4,12 +4,12 @@ services:
   angular-service:
     container_name: webapp-service-test
     build: ./tqs_webapp
-    command: ng serve --host 0.0.0.0
+    command: ng serve --host 0.0.0.0 --port 9200
     networks:
       - webapp_test
     env_file: ./testing/.env
     ports:
-        - $WEBAPP_LOCAL_PORT:4200
+        - $WEBAPP_LOCAL_PORT:$WEBAPP_DOCKER_PORT
 
 networks:
   webapp_test:
