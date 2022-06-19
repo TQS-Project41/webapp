@@ -7,11 +7,20 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  @Input("card_number") quantity : number = 0;
+  quantity: any = null;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  checkIfLoggedIn() {
+    if (localStorage.getItem('token')) return true
+    return false
+  }
+
+  clear() {
+    localStorage.removeItem('token');
   }
 
 }

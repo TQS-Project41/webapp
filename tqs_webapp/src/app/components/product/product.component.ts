@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/classes/Product';
+import { CartService } from 'src/app/service/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -9,16 +10,15 @@ import { Product } from 'src/app/classes/Product';
 export class ProductComponent implements OnInit {
 
   @Input("product") p!: Product;
-  @Output() rcv_product = new EventEmitter<Product>();
 
-  constructor() { }
+  constructor(private service: CartService) { }
 
   ngOnInit(): void {
   }
 
 
   add2cart() {
-    this.p.quantity = parseInt((<HTMLInputElement>document.getElementById("input_"+ this.p.id)).value);
-    this.rcv_product.emit(this.p);
+    let quantity = parseInt((<HTMLInputElement>document.getElementById("input_"+ this.p.id)).value);
+    this.service.add2Cart(this.p.id, quantity).subscribe();
   }
 }

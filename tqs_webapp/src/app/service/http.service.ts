@@ -12,11 +12,13 @@ export class HTTPService implements HttpInterceptor {
     constructor(private loginService: AuthService) {}
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+        let token = localStorage.getItem('token');
         
-        if (this.loginService.getToken()) {
+        if (token) {
             request = request.clone({
                 setHeaders: {
-                Authorization: `Bearer ${this.loginService.getToken()}`,
+                Authorization: `Bearer ${token}`,
                 },
             });
         }

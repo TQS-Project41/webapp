@@ -9,7 +9,7 @@
 
                     <img src="../../../assets/img/coviran.png" alt="coviran_logo" width="300" style="margin-bottom: 3em;">
 
-                    <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                    <div class="wrap-input100 validate-input">
                         <input class="input100" type="text" name="login-email" placeholder="Email" id="email">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
@@ -30,6 +30,11 @@
                     <div class="container-login100-form-btn">
                         <button (click)="submit()" value="Log in" class="login100-form-btn" style="color:white; cursor: pointer;">
                             Login
+                        </button>
+                    </div>
+                    <div class="container-login100-form-btn-cancel">
+                        <button class="login100-form-btn-cancel" style="color:white; cursor: pointer;" (click)="redirect()">
+                            Enter as anonymous
                         </button>
                     </div>
                     
