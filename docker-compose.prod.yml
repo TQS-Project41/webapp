@@ -9,7 +9,7 @@ services:
     command: ng serve --prod --host 0.0.0.0 --port 4200 --disable-host-check
     networks:
       - webapp_test
-    env_file: ./testing/.env
+    env_file: ./deployment/.env
     ports:
         - 4200:4200
 
