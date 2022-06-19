@@ -6,8 +6,6 @@ services:
     build: ./tqs_webapp
     networks:
       - webapp_test
-    volumes:
-      - './tqs_webapp:/usr/src/app_test'
     env_file: ./testing/.env
     environment:
       WEBAPP_LOCAL_PORT: $WEBAPP_LOCAL_PORT
