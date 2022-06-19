@@ -41,4 +41,8 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  redirect() {
+    window.location.href = "/";
+  }
+
 }

@@ -7,6 +7,6 @@ export class Product {
     description!: string
     category!: Category
 
-    quantity: number = 0
+    amount: number = 0
     total_price: number = 0
  }

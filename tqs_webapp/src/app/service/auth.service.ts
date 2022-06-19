@@ -8,28 +8,16 @@ import { environment } from '../../environments/environment';
 })
 export class AuthService {
   
-  private token: string = '';
+
   constructor(private http: HttpClient) {}
 
-  isLoggedIn = () => this.token !== ''
-
-  logOut = () => this.token = ''
-
-  getToken() {
-    return this.token;
-  }
-
-  setToken(token: string) {
-    this.token = token;
-  }
-
-   
   logIn(json: JSON) {
     let req =  this.http.post(environment.PRIVATE_API + "login", json)
 
     req.subscribe({
       next: (info: any) => {
-        this.token = info["token"];
+        console.log("sucesso", info)
+        localStorage.setItem('token', info["token"]);
 
       }, 
       error: (error) => {

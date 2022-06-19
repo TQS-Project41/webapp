@@ -39,33 +39,8 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  getQuantity(product: Product) {
-    /* console.log("[", product.name ,"]:", product.quantity) */
-
-    let json = '[';
-    // atualizar a lista
-    for (var p of this.lst_products) {
-      if (p.id == product.id) {
-        p.quantity = product.quantity
-        p.total_price = p.quantity * +p.price
-        this.card_number += p.quantity * +p.price
-      }
-
-      if (p.quantity > 0) {
-        console.log("[", product.name ,"]:", product.quantity)
-        json += '{"id": "'+ p.id +'", "name": "'+ p.name +'", "price": "'+ p.price +'", "quantity": '+ p.quantity +', "total_price": '+ p.total_price +'}'
-        json = json.replace('}{', '},{')
-      }
-    }
-
-    json += ']'
-
-    console.log(json)
-
-    localStorage.setItem('lst_products', json);
-
-    console.log("[CART]:", this.card_number)
-    console.log("--------------------------------")
+  redirect(id: number) {
+    window.location.href = "category/"+id;
   }
 
 }
