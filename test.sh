@@ -1,25 +1,28 @@
 #!/bin/bash
 
-printf "[*] MOVING FILES TO TESTING ENVIRONMENT...\n"
+docker-compose -f docker-compose.dev.yml down -v
+docker-compose -f docker-compose.dev.yml up --build
 
-filename='./tqs_webapp/Dockerfile'
-DIR='test_env'
+# printf "[*] MOVING FILES TO TESTING ENVIRONMENT...\n"
 
-if [ -d "$DIR" ]; then
-	rm -rf test_env
-    printf "[*] DONE...\n"
-fi
+# filename='./tqs_webapp/Dockerfile'
+# DIR='test_env'
 
-mkdir test_env
-mv -v ./* ./test_env/
+# if [ -d "$DIR" ]; then
+# 	rm -rf test_env
+#     printf "[*] DONE...\n"
+# fi
 
-cd test_env
+# mkdir test_env
+# mv -v ./* ./test_env/
 
-if [ -f $filename ]; then
-   rm ./tqs_webapp/Dockerfile
-    printf "[*] DELETED DOCKERFILE...\n"
-fi
+# cd test_env
 
-cat ./testing/Dockerfile >> ./tqs_webapp/Dockerfile
+# if [ -f $filename ]; then
+#    rm ./tqs_webapp/Dockerfile
+#     printf "[*] DELETED DOCKERFILE...\n"
+# fi
 
-./dev.sh -a
+# cat ./testing/Dockerfile >> ./tqs_webapp/Dockerfile
+
+# ./dev.sh -a
