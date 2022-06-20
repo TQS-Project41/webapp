@@ -23,5 +23,9 @@ export class CartService {
   getItems() : Observable<ProductCartItem[]> {
     return this.http.get<ProductCartItem[]>(environment.PRIVATE_API + "cart");
   }
+  
+  deleteItem(id: number) {
+    return this.http.delete(environment.PRIVATE_API + "cart/"+ id);
+  }
 
 }

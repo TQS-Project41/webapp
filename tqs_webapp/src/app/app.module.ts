@@ -16,6 +16,8 @@ import { HTTPService } from './service/http.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ListComponent } from './components/list/list.component';
+import { OrdersComponent } from './pages/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { LoginComponent } from './pages/login/login.component';
     CartComponent,
     ListsComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ListComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
