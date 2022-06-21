@@ -18,6 +18,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ListComponent } from './components/list/list.component';
 import { OrdersComponent } from './pages/orders/orders.component';
+import { AddressesComponent } from './pages/addresses/addresses.component';
+import { OrderComponent } from './components/order/order.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { OrdersComponent } from './pages/orders/orders.component';
     RegisterComponent,
     LoginComponent,
     ListComponent,
-    OrdersComponent
+    OrdersComponent,
+    AddressesComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

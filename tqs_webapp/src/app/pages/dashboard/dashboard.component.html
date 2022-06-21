@@ -31,7 +31,7 @@
             <div *ngFor="let c of categories" class="col-lg-4 mt-4" >
 
                     <div class="card" style="text-align:center;cursor: pointer;" (click)="redirect(c.id)">
-                        <img src="../../../assets/img/category/category_{{c.id}}.jpg" class="card-img-top"  alt="Chocapic :)">
+                        <img src="../../../assets/img/category/category_{{c.id}}.jpg" class="card-img-top"  alt="category {{c.name}}">
 
                         <h5 class="mb-0 font-weight-bold">{{c.name}}</h5>
                     </div>

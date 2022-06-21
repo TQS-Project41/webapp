@@ -9,7 +9,7 @@ import { OrderService } from 'src/app/service/order.service';
 })
 export class OrdersComponent implements OnInit {
 
-  orders!: Order[];
+  orders: Order[] = [];
 
   constructor(private service: OrderService) { }
 

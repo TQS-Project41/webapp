@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { Order } from '../classes/Order';
 import { Page } from '../classes/Page';
+import { ProductCartItem } from '../classes/ProductCartItem';
 
 
 @Injectable({
@@ -24,6 +25,10 @@ export class OrderService {
     params = params.append('address', address_id);
     params = params.append('deliveryTimestamp', time);
     return this.http.post(environment.PRIVATE_API + "orders", {}, {params});
+  }
+
+  getProducts(id: number) : Observable<ProductCartItem[]> {
+    return this.http.get<ProductCartItem[]>(environment.PRIVATE_API + "orders/"+ id +"/products");
   }
   
 }
