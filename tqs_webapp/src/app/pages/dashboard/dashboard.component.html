@@ -31,7 +31,7 @@
             <div *ngFor="let c of categories" class="col-lg-4 mt-4" >
 
                     <div class="card" style="text-align:center;cursor: pointer;" (click)="redirect(c.id)">
-                        <img src="../../../assets/img/peixaria.jpg" class="card-img-top"  alt="Chocapic :)">
+                        <img src="../../../assets/img/category/category_{{c.id}}.jpg" class="card-img-top"  alt="category {{c.name}}">
 
                         <h5 class="mb-0 font-weight-bold">{{c.name}}</h5>
                     </div>
@@ -50,7 +50,7 @@
             <h4>All Products</h4>
             <!-- Produt Card -->
             <div *ngFor="let p of lst_products" class="col-lg-3 mt-4">
-                <app-product [product]="p" ></app-product>
+                <app-product [product]="p" [lists]="lists"></app-product>
             </div>
 
         </div>

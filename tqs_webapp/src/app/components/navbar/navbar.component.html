@@ -19,8 +19,17 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/lists">Your lists</a>
+                    <a class="nav-link" href="/lists" *ngIf="checkIfLoggedIn()">Your Lists</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/orders" *ngIf="checkIfLoggedIn()">Your Orders</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/addresses" *ngIf="checkIfLoggedIn()">Your Addresses</a>
+                </li>
+
 
             </ul>
 

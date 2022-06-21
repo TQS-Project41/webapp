@@ -1,15 +1,33 @@
 <div class="card" style="width: 18rem;">
 
     <!-- <img src="../../../assets/img/chocavelho.jpg" class="card-img-top" alt="Chocapic :)"> -->
-
+  
     <div class="card-body">
+      <!-- <button type="button" class="btn btn-primary" id="add2cart" >Add to List</button> -->
       <h5 class="card-title">{{p.name}}</h5>
-      <p class="card-text">{{p.price}}€</p>
+      <p class="card-text">{{p.price |number}}€</p>
       <p class="text-muted">{{p.description}}</p>
       <!-- <a class="btn btn-primary">Add to cart</a> -->
+      <p *ngIf="error" class="validation-summary-errors text-danger">Please enter a valid amount.</p>
+
       <div class="d-flex align-items-center mt-5">
         <input type="number" min="0" value="0" id="input_{{p.id}}" style="text-align:center; width: 5em; position: absolute; left: 0;"/>
-        <button type="button" class="btn btn-primary" id="add2cart" style="position: absolute; right: 0;" (click)="add2cart()" >Add to cart</button>
+        
+        <div style="display: block; margin-left: auto;">
+          <button type="button" class="btn btn-primary" id="add2cart" (click)="add2cart()" >Add to cart</button>
+
+          <div class="dropdown" *ngIf="lists">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" >
+              Add to list
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li *ngFor="let l of lists"><a class="dropdown-item" style="cursor: pointer;"(click)=" add2list(l.id)">{{l.name}}</a></li>
+            </ul>
+          </div>
+          
+        </div>
+
       </div>
     </div>
+
 </div>
