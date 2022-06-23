@@ -38,6 +38,7 @@ export class DashboardComponent implements OnInit {
 
   getCategories() {
     this.service.getCategories().subscribe((info) => {
+      console.log(info)
       this.categories = info;
     });
   }

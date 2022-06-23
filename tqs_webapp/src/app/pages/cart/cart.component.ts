@@ -26,6 +26,7 @@ export class CartComponent implements OnInit {
   addressSelected: string = '';
   addressError: boolean = false
   storeError: boolean = false;
+  fee: number = 0;
 
   
   constructor(private service: CartService, private orderService: OrderService, 
@@ -35,6 +36,7 @@ export class CartComponent implements OnInit {
     this.getCartItems();
     this.getStores();
     this.getAddresses();
+    this.getFee();
   }
 
 
@@ -94,10 +96,6 @@ export class CartComponent implements OnInit {
 
       this.storeError = false
       this.addressError = false
-      console.log(store)
-      console.log(address)
-      console.log(deliveryTimestamp)
-
 
       this.orderService.createOrder(store, address, deliveryTimestamp).subscribe();
     }
@@ -115,6 +113,13 @@ export class CartComponent implements OnInit {
       this.addresses = info;
       console.log(info)
     });
+  }
+
+  getFee() {
+    this.orderService.getFee(1).subscribe((info: any) => {
+      this.fee = info["fee"]
+    });
+
   }
 
 }

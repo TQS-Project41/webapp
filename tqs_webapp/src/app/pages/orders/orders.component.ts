@@ -21,7 +21,7 @@ export class OrdersComponent implements OnInit {
   getAllOrders() {
     this.service.getOrders().subscribe((info) => {
       this.orders = info.content;
-      console.log(info)
+      console.log(info) // mapa com order + satus
     });
   }
 
