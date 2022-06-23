@@ -10,4 +10,5 @@ export interface Order {
     deliveryTimestamp: string,
     orderTimestamp: string,
     store: Store,
+    status: string,
  }

@@ -27,8 +27,17 @@ export class OrderService {
     return this.http.post(environment.PRIVATE_API + "orders", {}, {params});
   }
 
-  getProducts(id: number) : Observable<ProductCartItem[]> {
-    return this.http.get<ProductCartItem[]>(environment.PRIVATE_API + "orders/"+ id +"/products");
+  getProducts(id: number) : Observable<Map<string, any>> {
+    return this.http.get<Map<string, any>>(environment.PRIVATE_API + "orders/"+ id );
+  }
+
+
+  cancel(id: number) {
+    return this.http.delete(environment.PRIVATE_API + "orders/"+ id );
+  }
+
+  getFee(id: number) : Observable<Map<string, number>> {
+    return this.http.get<Map<string, number>>(environment.PRIVATE_API + "orders/"+ id +"/fee" );
   }
   
 }
