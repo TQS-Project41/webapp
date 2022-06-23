@@ -1,0 +1,17 @@
+version: "3.0"
+
+services:
+  angular-service:
+    container_name: webapp-service-prod
+    build: ./tqs_webapp
+    networks:
+      - webapp_prod
+    env_file: ./deployment/.env
+    environment:
+      WEBAPP_LOCAL_PORT: $WEBAPP_LOCAL_PORT
+      WEBAPP_DOCKER_PORT: $WEBAPP_DOCKER_PORT
+    ports:
+        - $WEBAPP_LOCAL_PORT:$WEBAPP_DOCKER_PORT
+
+networks:
+  webapp_prod:

@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  PRIVATE_API: 'http://deti-tqs-12.ua.pt:8001/',
 };
 
 /*

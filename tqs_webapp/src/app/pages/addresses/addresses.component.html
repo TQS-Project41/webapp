@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+  
+    <div class="d-flex" >
+        <h4>Your Addresses</h4> 
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" style="display: block; margin-left: auto">Add Address</button>
+      </div>
+
+  <div class="col-lg-12" *ngIf="addresses">
+    <div class="card" *ngFor="let a of addresses">
+        <div class="card-body">
+
+            <h5 class="card-title">{{a.address}}</h5>
+            <p class="card-text">{{a.city}} ({{a.country}})</p>
+            <p class="text-muted">{{a.zipcode}}</p>     
+    
+        </div>
+    </div>
+  </div>
+
+  <div class="col-lg-12" *ngIf="!addresses">
+    No addresses found :(
+  </div>
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add your Address</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+
+            <div class="card-body">
+                <div class="col-lg-12 form-outline">
+                  <input class="form-control" id="address" placeholder="Address" autocomplete="off"/>
+                  <input class="form-control" id="city" placeholder="City" autocomplete="off"/>
+                  <input class="form-control" id="country" placeholder="Country" autocomplete="off"/>
+                  <input class="form-control" id="zipcode" placeholder="ZipCode" autocomplete="off"/>
+                  <!-- <p *ngIf="error" class="validation-summary-errors text-danger">Please enter a name for your list!</p> -->
+                </div>
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" #close data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="add()">Add</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
