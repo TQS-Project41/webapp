@@ -1,4 +1,4 @@
-package com.test.app;
+package com.test.app.steps;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
 
+import com.test.app.BrowserContainer;
 import com.test.app.selenium.LoginPage;
 import com.test.app.selenium.RegisterPage;
 import com.test.app.selenium.SleepWrapper;
@@ -15,15 +16,18 @@ import com.test.app.selenium.SleepWrapper;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+// import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class AuthenticationSteps {
+public class LoginSteps {
 
   private WebDriver driver = new BrowserContainer().getDriver();
+
+  // private WebDriver driver = WebDriverManager.firefoxdriver().create();
 
   private String preLoginUrl;
 
   @Given("The following users must exist")
-  public void the_following_users_must_exist(io.cucumber.datatable.DataTable dataTable) throws Exception {
+  public void the_following_users_must_exist(io.cucumber.datatable.DataTable dataTable) {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     RegisterPage page = RegisterPage.getInstance(driver);
 

@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 public class SleepWrapper {
 
-  private static int WAIT_MILLISECONDS = 5000;
+  private static int WAIT_MILLISECONDS = 1000;
 
   public static void sleep(int milliseconds) {
     try {

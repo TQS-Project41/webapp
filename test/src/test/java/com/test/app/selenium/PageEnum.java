@@ -2,9 +2,10 @@ package com.test.app.selenium;
 
 public enum PageEnum {
   
-  LOGIN("/login"), REGISTER("/register");
+  INDEX(""), LOGIN("login"), REGISTER("register"), 
+  CATEGORY("category"), STORED_LISTS("lists"), CART("cart");
 
-  private final String baseUrl = "http://172.17.0.1:4200";
+  private final String baseUrl = "http://deti-tqs-12.ua.pt:9200/";
   private final String pageUrl;
 
   private PageEnum (String pageUrl) {
